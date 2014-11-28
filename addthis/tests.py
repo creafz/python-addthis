@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-
+import re
 import unittest
 
 import mock
@@ -128,9 +128,9 @@ class TestAddthisEndpoint(unittest.TestCase):
             "attachment": {"reason": ""}}
         }
 
-        expected_message = "400 Error \(code = '30'," \
-                           " message='invalid parameter'," \
-                           " attachment='\{u'reason': u''\}\)'"
+        expected_message = re.compile("400 Error \(code = '30',"
+                                      " message='invalid parameter',"
+                                      " attachment='\{u'reason': u''\}\)'")
 
         self.assertRaisesRegexp(AddthisError, expected_message,
                                 lambda: self.endpoint.request(
@@ -141,9 +141,10 @@ class TestAddthisEndpoint(unittest.TestCase):
         """Executes the actual request to the AddThis API with incorrect
         credentials.
         """
-        expected_message = "401 Error \(code = '80'," \
-                           " message='authentication failed'," \
-                           " attachment='\{u'nonce': None," \
-                           " u'realm': u'AddThis', u'opaque': None\}\)'"
+        expected_message = re.compile("401 Error \(code = '80',"
+                                      " message='authentication failed',"
+                                      " attachment='\{u'nonce': None,"
+                                      " u'realm': u'AddThis',"
+                                      " u'opaque': None\}\)'")
         self.assertRaisesRegexp(AddthisError, expected_message,
                                 lambda: self.endpoint.request("shares", "day"))
