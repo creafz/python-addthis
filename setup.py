@@ -17,6 +17,8 @@ setup(
     author=author,
     author_email=author_email,
     url='https://github.com/creafz/python-addthis',
+    download_url=
+    'https://github.com/creafz/python-addthis/tarball/0.1.1',
     packages=['addthis'],
     package_data={'': ['LICENSE']},
     include_package_data=True,
@@ -25,6 +27,7 @@ setup(
     test_suite='addthis.tests',
     tests_require=["coverage", "mock"],
     classifiers=(
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
