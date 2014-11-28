@@ -2,6 +2,11 @@
 from __future__ import unicode_literals
 
 
+class AddthisValidationError(Exception):
+    """Raised if incorrect parameters are provided."""
+    pass
+
+
 class AddthisError(Exception):
     """Raised if Addthis service returns anything
     with status code other than 200.
