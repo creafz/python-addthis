@@ -135,7 +135,6 @@ class TestAddthisEndpoint(unittest.TestCase):
             self.assertEqual(e.message, "invalid parameter")
             self.assertEqual(e.code, 30)
             self.assertEqual(e.attachment, {"reason": ""})
-
         except Exception as e:
             self.fail("Unexpected exception thrown: {!s}".format(e))
         else:
@@ -154,7 +153,6 @@ class TestAddthisEndpoint(unittest.TestCase):
             self.assertEqual(e.attachment, {"nonce": None,
                                             "realm": "AddThis",
                                             "opaque": None})
-
         except Exception as e:
             self.fail("Unexpected exception thrown: {!s}".format(e))
         else:

@@ -62,7 +62,6 @@ class AddthisEndpoint(object):
         the first one is ``metric`` and the second one is ``dimension``
         Raises an Exception if the number of parameters is different.
         """
-
         if len(self.path) != 2:
             raise AddthisValidationError("Incorrect number of parameters "
                                          "are given. Expected 2 but got "
