@@ -1,0 +1,6 @@
+[run]
+branch = True
+include =
+    addthis/*
+omit =
+    addthis/tests.py
