@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import re
-
 from setuptools import setup
 
 addthis_init = open('addthis/__init__.py').read()
