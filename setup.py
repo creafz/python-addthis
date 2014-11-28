@@ -3,6 +3,7 @@
 import re
 from setuptools import setup
 
+
 addthis_init = open('addthis/__init__.py').read()
 author = re.search("__author__ = '([^']+)'", addthis_init).group(1)
 author_email = re.search("__author_email__ = '([^']+)'", addthis_init).group(1)

@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, unicode_literals
-import re
 import unittest
 
 import mock
@@ -128,23 +127,35 @@ class TestAddthisEndpoint(unittest.TestCase):
             "attachment": {"reason": ""}}
         }
 
-        expected_message = re.compile("400 Error \(code = '30',"
-                                      " message='invalid parameter',"
-                                      " attachment='\{u'reason': u''\}\)'")
+        try:
+            self.endpoint.request("shares", "day",
+                                  query_params={"test_key": "test_value"})
+        except AddthisError as e:
+            self.assertEqual(e.status_code, 400)
+            self.assertEqual(e.message, "invalid parameter")
+            self.assertEqual(e.code, 30)
+            self.assertEqual(e.attachment, {"reason": ""})
 
-        self.assertRaisesRegexp(AddthisError, expected_message,
-                                lambda: self.endpoint.request(
-                                    "shares", "day",
-                                    query_params={"test_key": "test_value"}))
+        except Exception as e:
+            self.fail("Unexpected exception thrown: {!s}".format(e))
+        else:
+            self.fail("AddthisError not thrown")
 
     def test_addthis_request(self):
         """Executes the actual request to the AddThis API with incorrect
         credentials.
         """
-        expected_message = re.compile("401 Error \(code = '80',"
-                                      " message='authentication failed',"
-                                      " attachment='\{u'nonce': None,"
-                                      " u'realm': u'AddThis',"
-                                      " u'opaque': None\}\)'")
-        self.assertRaisesRegexp(AddthisError, expected_message,
-                                lambda: self.endpoint.request("shares", "day"))
+        try:
+            self.endpoint.request("shares", "day")
+        except AddthisError as e:
+            self.assertEqual(e.status_code, 401)
+            self.assertEqual(e.message, "authentication failed")
+            self.assertEqual(e.code, 80)
+            self.assertEqual(e.attachment, {"nonce": None,
+                                            "realm": "AddThis",
+                                            "opaque": None})
+
+        except Exception as e:
+            self.fail("Unexpected exception thrown: {!s}".format(e))
+        else:
+            self.fail("AddthisError not thrown")
