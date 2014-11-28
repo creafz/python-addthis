@@ -1,19 +1,28 @@
 ==============
 python-addthis
 ==============
+.. image:: https://pypip.in/version/addthis/badge.svg
+    :target: https://pypi.python.org/pypi/addthis/
+    :alt: Latest Version
+
+.. image:: https://travis-ci.org/creafz/python-addthis.svg?branch=master
+    :target: https://travis-ci.org/creafz/python-addthis
+
+.. image:: https://coveralls.io/repos/creafz/python-addthis/badge.png?branch=master
+    :target: https://coveralls.io/r/creafz/python-addthis?branch=master
 
 A Python wrapper for the `AddThis Analytics API <http://support.addthis.com/customer/portal/articles/381264-addthis-analytics-api/>`_.
 
 Requirements
 ------------
 * Python 2.6, 2.7 or 3.2+
-* `python-requests <https://pypi.python.org/pypi/requests/>`_ library.
+* `python-requests <https://pypi.python.org/pypi/requests/>`_ library
 
 Installation
 ------------
 Install from PyPI::
 
-    pip install python-addthis
+    pip install addthis
 
 Usage
 -----
@@ -22,7 +31,7 @@ Usage
 
     from addthis import Addthis
 
-    # create an AddThis instance using userid and password from your AddThis account and optionally provide a pubid.
+    # create an AddThis instance using userid and password from your AddThis account and optionally provide a pubid
     addthis = Addthis(userid="YOUR_USER_ID", password="YOUR_PASSWORD", pubid="YOUR_PUB_ID")
 
     # get the number of shares for the last day
@@ -32,7 +41,7 @@ Usage
     print addthis.shares.day(period="week")
 
 
-You can see a full documentation for supported metrics and dimensions at http://support.addthis.com/customer/portal/articles/381264-addthis-analytics-api
+You can see a full description of all supported metrics and dimensions at http://support.addthis.com/customer/portal/articles/381264-addthis-analytics-api
 
 A few more examples
 ~~~~~~~~~~~~~~~~~~~
@@ -69,7 +78,7 @@ Addthis object expects to be called with 2 parameters - "metric" and "dimension"
 
 For example::
 
-     >>> addthis.shares.day() # "shares" is a metric and "day" is a dimension.
+     >>> addthis.shares.day() # "shares" is a metric and "day" is a dimension
 
 
 If it gets another number of parameters (e.g. addthis.shares() or addthis.shares.day.week()) it will raise an **AddthisValidationError**.
