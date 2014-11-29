@@ -6,4 +6,5 @@ recursive-exclude * __pycache__
 recursive-exclude * *.py[co]
 recursive-exclude * .DS_Store
 recursive-exclude .tox
+recursive-exclude tox.ini
 recursive-exclude .  htmlcov
