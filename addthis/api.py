@@ -65,7 +65,7 @@ class AddthisEndpoint(object):
         if len(self.path) != 2:
             raise AddthisValidationError("Incorrect number of parameters "
                                          "are given. Expected 2 but got "
-                                         "{num_params}"
+                                         "{num_params}."
                                          .format(num_params=len(self.path)))
         metric = self.path[0]
         dimension = self.path[1]

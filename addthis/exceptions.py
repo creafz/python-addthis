@@ -30,5 +30,5 @@ class AddthisError(Exception):
 
     def __str__(self):
         return "{error.status_code} Error (code = '{error.code}'," \
-               " message='{error.message}', attachment='{error.attachment})'".\
+               " message='{error.message}', attachment='{error.attachment})'.".\
             format(error=self)
