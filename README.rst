@@ -83,9 +83,38 @@ For example::
 
 If it gets another number of parameters (e.g. addthis.shares() or addthis.shares.day.week()) it will raise an **AddthisValidationError**.
 
+::
+
+    from addthis import Addthis, AddthisValidationError
+
+    addthis = Addthis(userid="YOUR_USER_ID", password="YOUR_PASSWORD", pubid="YOUR_PUB_ID")
+
+    try:
+        addthis.shares()
+    except AddthisValidationError as e:
+        print e # "Incorrect number of parameters are given. Expected 2 but got 1."
+
+
+
+
 AddthisError
 ~~~~~~~~~~~~
 **AddthisError** is raised when AddThis service returns a response with a HTTP status code other than 200. The exception object has 4 attributes:
 
 * *status_code*: Code from the HTTP response.
 * *code*, *message*, *attachment*: Error attributes from the AddThis response body. (see the “Error" section in the `AddThis Analytics API documentation <http://support.addthis.com/customer/portal/articles/381264-addthis-analytics-api/>`_ for more information).
+
+::
+
+    from addthis import Addthis, AddthisError
+
+    addthis = Addthis(userid="INCORRECT_USER_ID", password="INCORRECT_PASSWORD", pubid="INCORRECT_PUB_ID")
+
+    try:
+        addthis.shares.day()
+    except AddthisError as e:
+        print e # "401 Error (code = '80', message='authentication failed', attachment='{u'nonce': None, u'realm': u'AddThis', u'opaque': None})'."
+        print e.status_code # 401
+        print e.code # 80
+        print e.message # "authentication failed"
+        print e.attachment # {u'nonce': None, u'realm': u'AddThis', u'opaque': None}
