@@ -19,7 +19,7 @@ setup(
     author_email=author_email,
     url='https://github.com/creafz/python-addthis',
     download_url=
-    'https://github.com/creafz/python-addthis/tarball/0.1.1',
+    'https://github.com/creafz/python-addthis/tarball/{!s}'.format(version),
     packages=['addthis'],
     package_data={'': ['LICENSE']},
     include_package_data=True,
