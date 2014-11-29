@@ -92,7 +92,7 @@ If it gets another number of parameters (e.g. addthis.shares() or addthis.shares
     try:
         addthis.shares()
     except AddthisValidationError as e:
-        print e # "Incorrect number of parameters are given. Expected 2 but got 1."
+        print e  # "Incorrect number of parameters are given. Expected 2 but got 1."
 
 
 
@@ -113,8 +113,8 @@ AddthisError
     try:
         addthis.shares.day()
     except AddthisError as e:
-        print e # "401 Error (code = '80', message='authentication failed', attachment='{u'nonce': None, u'realm': u'AddThis', u'opaque': None})'."
-        print e.status_code # 401
-        print e.code # 80
-        print e.message # "authentication failed"
-        print e.attachment # {u'nonce': None, u'realm': u'AddThis', u'opaque': None}
+        print e  # "401 Error (code = '80', message='authentication failed', attachment='{u'nonce': None, u'realm': u'AddThis', u'opaque': None})'."
+        print e.status_code  # 401
+        print e.code  # 80
+        print e.message  # "authentication failed"
+        print e.attachment  # {u'nonce': None, u'realm': u'AddThis', u'opaque': None}
