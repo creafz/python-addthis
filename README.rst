@@ -78,7 +78,7 @@ Addthis object expects to be called with 2 parameters - "metric" and "dimension"
 
 For example::
 
-     >>> addthis.shares.day() # "shares" is a metric and "day" is a dimension
+     >>> addthis.shares.day()  # "shares" is a metric and "day" is a dimension
 
 
 If it gets another number of parameters (e.g. addthis.shares() or addthis.shares.day.week()) it will raise an **AddthisValidationError**.
