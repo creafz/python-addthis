@@ -26,7 +26,6 @@ class Addthis(object):
               Alternatively you can pass it as a parameter for the each
               request.
         """
-
         self.userid = userid
         self.password = password
         self.pubid = pubid
@@ -69,7 +68,6 @@ class AddthisEndpoint(object):
                                          .format(num_params=len(self.path)))
         metric = self.path[0]
         dimension = self.path[1]
-
         return self.request(metric, dimension, query_params=kwargs)
 
     def _make_request_url(self, metric, dimension):
