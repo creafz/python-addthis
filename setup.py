@@ -1,20 +1,27 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import os
 import re
 from setuptools import setup
 
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
+    README = readme.read()
 
-addthis_init = open("addthis/__init__.py").read()
-author = re.search("__author__ = '([^']+)'", addthis_init).group(1)
-author_email = re.search("__email__ = '([^']+)'", addthis_init).group(1)
-version = re.search("__version__ = '([^']+)'", addthis_init).group(1)
+with open(os.path.join(os.path.dirname(__file__), 'addthis/__init__.py')) \
+        as init_file:
+
+    init = init_file.read()
+    addthis_init = open("addthis/__init__.py").read()
+    author = re.search("__author__ = '([^']+)'", init).group(1)
+    author_email = re.search("__email__ = '([^']+)'", init).group(1)
+    version = re.search("__version__ = '([^']+)'", init).group(1)
 
 
 setup(
     name='addthis',
     version=version,
     description='A Python wrapper for the AddThis Analytics API',
-    long_description=open('README.rst').read(),
+    long_description=README,
     author=author,
     author_email=author_email,
     url='https://github.com/creafz/python-addthis',
