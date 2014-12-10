@@ -43,7 +43,7 @@ class AddthisEndpoint(object):
     BASE_URL = "https://api.addthis.com/analytics/{api_version}/pub/"\
         .format(api_version=API_VERSION)
 
-    def __init__(self, userid, password, pubid, path):
+    def __init__(self, userid, password, pubid, path=None):
         self.userid = userid
         self.password = password
         self.pubid = pubid
