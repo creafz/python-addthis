@@ -1,7 +1,7 @@
 ==============
 python-addthis
 ==============
-.. image:: https://pypip.in/version/addthis/badge.svg
+.. image:: https://img.shields.io/pypi/v/addthis.svg
     :target: https://pypi.python.org/pypi/addthis/
     :alt: Latest Version
 
